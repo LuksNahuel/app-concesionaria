@@ -28,9 +28,13 @@ public class ServiceApp {
     }
     
     public List<Vehiculo> filtrarVehiculos(String modelo, Double precio) {
-    	String where = "modelo = " + "'" + modelo + "' " + "OR " + "precio <= " + precio + ";";
-    	String sql = "SELECT marca, modelo, precio FROM vehiculos WHERE " + where;
-		List<Vehiculo> query = jdbcTemplate.query(sql, new VehiculosRowMapper());
-		return query;
+    	if(modelo.isEmpty() && precio == 0) {
+    		return this.getVehiculos();
+    	} else {
+    		String where = "modelo = " + "'" + modelo + "' " + "OR " + "precio <= " + precio + ";";
+        	String sql = "SELECT marca, modelo, precio FROM vehiculos WHERE " + where;
+    		List<Vehiculo> query = jdbcTemplate.query(sql, new VehiculosRowMapper());
+    		return query;
+    	}
 	}
 }
