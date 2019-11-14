@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Concesionaria</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+   	<div class="container">
+        <h2>Lista de vehículos:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="auto : ${listaVehiculos}">
+                    <th th:text="${auto.marca}"></th>
+                    <th th:text="${auto.modelo}"></th>
+                    <th th:text="${auto.precio}"></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/cargar-auto"> Cargar autos </a>
+    <a href="/buscar"> Buscar por modelo y precio </a>
+</body>
+</html>

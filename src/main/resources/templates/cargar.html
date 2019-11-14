@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Concesionaria</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+   	<form th:action="@{/cargar-auto}" th:object="${auto}" method="POST">
+            <input class="field" type="text" th:field="*{marca}" placeholder="Marca">
+            <input class="field" type="text" th:field="*{modelo}" placeholder="Modelo">
+            <input class="field" type="text" th:field="*{precio}" placeholder="Precio">
+            <input type="submit" value="Cargar">
+    </form>
+    <a href = "/"> Ver listado de vehículos </a>
+</body>
+</html>
